@@ -2,19 +2,19 @@ const Letter = require("../lib/Letter");
 
 describe("Letter class", () => {
   it("Characters that aren't digits or letters are instantly visible", () => {
-    expect(new Letter("?").visible).toBe(true); 
+    expect(new Letter("?", true).visible).toBe(true); 
   });
   
   it("Characters that are digits or letters are instantly not visible", () => {
-    expect(new Letter("a").visible).toBe(false); 
+    expect(new Letter("a", false).visible).toBe(false); 
   });
 
   it("toString returns _ for letters", () => {
-    expect(new Letter("a").toString()).toBe("_");
+    expect(new Letter("a", false).toString()).toBe("_");
   });
 
   it("toString returns the char for non digits or letters", () => {
-    expect(new Letter("?").toString()).toBe("?");
+    expect(new Letter("?", true).toString()).toBe("?");
   });
 
   describe("guess", () => {
